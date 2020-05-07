@@ -30,4 +30,5 @@
         - Edge：[link](https://developer.microsoft.com/en-us/micrsosft-edage/tools/webdriver)
         - Safari：[link](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
         
-    - win关闭程序直接关闭控制台窗口（键盘没break没测试ctrl+break），linux下ctrl+c有效
+    - win 关闭 ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
+    - linux 关闭 ctrl + C
