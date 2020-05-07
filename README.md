@@ -62,6 +62,6 @@
         - Edge：[link](https://developer.microsoft.com/en-us/micrsosft-edage/tools/webdriver)
         - Safari：[link](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
         
-    - win 关闭 ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
+    - win 关闭 Ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
     
-    - linux 关闭 ctrl + C
+    - linux 关闭 Ctrl + C
