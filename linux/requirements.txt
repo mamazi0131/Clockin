@@ -1,0 +1,4 @@
+selenium==3.141.0
+halo==0.0.29
+PyVirtualDisplay==0.2.5
+APScheduler==3.6.3

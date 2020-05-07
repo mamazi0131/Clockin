@@ -1,0 +1,31 @@
+{
+    "parameters": {
+        "StudentId": "2019200560",
+        "Name": "麻志鹏",
+        "StuCard" : "315113",
+        "Sex": "男",
+        "SpeType": "硕士",
+        "CollegeNo": "信息科学与技术学院",
+        "SpeGrade": "2019",
+        "SpecialtyName": "计算机科学与技术",
+        "ClassName": "硕士2019-04",
+        "MoveTel": "18402868177",
+        "FaProvince": "黑龙江省",
+        "FaCity": "哈尔滨市",
+        "FaCounty": "道里区",
+        "FaComeWhere": "安化街14号9栋4单元402",
+        "ProvinceName": "四川省",
+        "CityName": "成都市",
+        "CountyName": "郫都区",
+        "ComeWhere": "蓝枫园1栋2单元902",
+        "Q1": "否，未感染",
+        "Q2": "否，没有身处湖北",
+        "Q3": "否，无接触",
+        "Q4": "无以上状况",
+        "other": "checkin"
+    },
+    "schedule": {
+        "hour": "5",
+        "minute": "27"
+    }
+}
