@@ -30,5 +30,4 @@
         - Edge：[link](https://developer.microsoft.com/en-us/micrsosft-edage/tools/webdriver)
         - Safari：[link](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
         
-    - 关闭程序直接关闭控制台窗口或kill
-    - ctrl+c / ctrl break 只有在打卡期间有效，监听期间不响应
+    - win关闭程序直接关闭控制台窗口（键盘没break没测试ctrl+break），linux下ctrl+c有效
