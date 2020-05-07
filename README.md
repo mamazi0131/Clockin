@@ -1,9 +1,6 @@
 # Swjtu 网上健康信息定时填报脚本
-<<<<<<< HEAD
 - 支持 win 与 linux 建议通过tmux运行在VPS服务器上
 
-=======
->>>>>>> b1ec4054ce6fdc061951285a139894a9d080abe7
 - 安装依赖  
 
     ```
@@ -11,7 +8,6 @@
     ```
 
 - 创建config.json文件
-<<<<<<< HEAD
 
     ```
     内容参考 config_template.json 与 config_demo.json
@@ -43,11 +39,6 @@
 
     ```
     chmod 777 chromedriver
-=======
-
-    ```
-    内容参考 config_template.json 与 config_demo.json
->>>>>>> b1ec4054ce6fdc061951285a139894a9d080abe7
     ```
 
 - 运行
@@ -57,7 +48,6 @@
     ```
 
 - tips：
-<<<<<<< HEAD
 
     - 目前仅支持chrome浏览器，其他浏览器需更改浏览器类型并安装相应驱动
 
@@ -66,14 +56,6 @@
     self.driver = webdriver.Chrome(r'.\chromedriver.exe', options=options)  # 浏览器对应驱动
     ```
 
-=======
-    - 目前仅支持chrome浏览器，其他浏览器需更改浏览器类型并安装相应驱动
-    ```
-    options = webdriver.ChromeOptions() # 你的浏览器
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    self.driver = webdriver.Chrome(r'.\chromedriver.exe', options=options)  # 浏览器对应驱动
-    ```
->>>>>>> b1ec4054ce6fdc061951285a139894a9d080abe7
     - 对应驱动下载：
         - chrom：[link](http://npm.taobao.org/mirrors/chromedriver/)
         - firefox：[link](https://github.com/mozilla/geckodriver/releases)
@@ -81,8 +63,5 @@
         - Safari：[link](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
         
     - win 关闭 ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
-<<<<<<< HEAD
     
-=======
->>>>>>> b1ec4054ce6fdc061951285a139894a9d080abe7
     - linux 关闭 ctrl + C
