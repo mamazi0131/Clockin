@@ -5,10 +5,10 @@
     pip install -r requirements.txt
     ```
 
-- 创建config文件  
+- 创建config.json文件
 
     ```
-    参考 config_template.json 与 config_demo.json
+    内容参考 config_template.json 与 config_demo.json
     ```
 
 - 运行  
