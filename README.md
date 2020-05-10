@@ -1,4 +1,5 @@
 # Swjtu 网上健康信息定时填报脚本
+## ！目前学校更新了新版系统，该code暂时停用，更新后会上传
 - 支持 win 与 linux 建议通过tmux运行在VPS服务器上
 
 - 安装依赖  
@@ -62,6 +63,6 @@
         - Edge：[link](https://developer.microsoft.com/en-us/micrsosft-edage/tools/webdriver)
         - Safari：[link](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
         
-    - win 关闭 ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
+    - win 关闭 Ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
     
-    - linux 关闭 ctrl + C
+    - linux 关闭 Ctrl + C
