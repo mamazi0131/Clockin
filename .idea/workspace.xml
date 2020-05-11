@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01e7d780-6917-4375-8728-e07fce26e3bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clockin.py" beforeDir="false" afterPath="$PROJECT_DIR$/clockin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_demo.json" beforeDir="false" afterPath="$PROJECT_DIR$/config_demo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/config_template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/clockin.py" beforeDir="false" afterPath="$PROJECT_DIR$/linux/clockin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,25 +58,37 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2574" y="235" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589083493645">
+      <screen x="2160" y="0" width="1920" height="1160" />
+    </state>
+    <state x="2574" y="235" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.920/2160.0.1920.1160@2160.0.1920.1160" timestamp="1589083493645" />
     <state x="222" y="103" key="SettingsEditor" timestamp="1588791573719">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="222" y="103" key="SettingsEditor/0.0.1440.920@0.0.1440.920" timestamp="1588791573719" />
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1588885142836">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state x="2111" y="103" width="1736" height="976" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589088865701">
+      <screen x="2160" y="0" width="1920" height="1160" />
     </state>
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1588885142836" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/clockin.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="2111" y="103" width="1736" height="976" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.920/2160.0.1920.1160@2160.0.1920.1160" timestamp="1589088865701" />
+    <state x="2700" y="602" key="com.intellij.ide.util.TipDialog" timestamp="1589159472305">
+      <screen x="2160" y="243" width="1920" height="1160" />
+    </state>
+    <state x="2700" y="359" key="com.intellij.ide.util.TipDialog/0.0.1440.920/2160.0.1920.1160@2160.0.1920.1160" timestamp="1589091135066" />
+    <state x="2700" y="602" key="com.intellij.ide.util.TipDialog/0.0.1440.920/2160.243.1920.1160@2160.243.1920.1160" timestamp="1589159472305" />
+    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1589075698502" />
   </component>
 </project>

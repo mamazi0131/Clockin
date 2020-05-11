@@ -9,7 +9,7 @@ from halo import Halo
 from pyvirtualdisplay import Display
 
 Q1_table = {
-    "是，医院已确诊、正在治疗": '08278ee8-9bd8-45d2-9397-310ecddbf9d3',
+    "是，医院已确诊、正在治疗": 'a45ee799-9d9e-4347-953c-b14bdd53578e',
     "是，曾经确诊、现已治愈": '08278ee8-9bd8-45d2-9397-310ecddbf9d3',
     "否，正在进行医学隔离观察、待确诊或待排除": '4e205912-7304-4e35-b4c3-f9b95c9078e2',
     '否，未感染': '6fb3abcd-1aa3-4b6f-8254-62426dd36f37'
@@ -30,19 +30,18 @@ Q4_table = {
     "无以上状况": "c111ad09-e63a-484d-b88f-7f0b6a6c979b"
 }
 
-
 class clockin(object):
 
     def __init__(self, config):
         self.StudentId = config['StudentId']
         self.Name = config['Name']
         self.StuCard = config['StuCard']
-        self.Sex = config['Sex']
-        self.SpeType = config['SpeType']
-        self.CollegeNo = config['CollegeNo']
-        self.SpeGrade = config['SpeGrade']
-        self.SpecialtyName = config['SpecialtyName']
-        self.ClassName = config['ClassName']
+        # self.Sex = config['Sex']
+        # self.SpeType = config['SpeType']
+        # self.CollegeNo = config['CollegeNo']
+        # self.SpeGrade = config['SpeGrade']
+        # self.SpecialtyName = config['SpecialtyName']
+        # self.ClassName = config['ClassName']
         self.MoveTel = config['MoveTel']
         self.FaProvince = config["FaProvince"]
         self.FaCity = config["FaCity"]
@@ -63,9 +62,9 @@ class clockin(object):
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome('./chromedriver',options=options)
+        self.driver = webdriver.Chrome(options=options)
         self.driver.set_window_size(1920, 1440)
-        self.default = False
+        # self.default = False
 
     def is_Element(self, element):
         try:
@@ -77,132 +76,156 @@ class clockin(object):
     def login(self):
         self.driver.get(self.login_url)
         self.driver.implicitly_wait(30)
-        # self.driver.maximize_window()
 
-        self.driver.find_element_by_name('StudentId').send_keys(self.StudentId)
+
+        self.driver.find_element_by_id('StudentId').send_keys(self.StudentId)
         time.sleep(0.4)
-        self.driver.find_element_by_name('Name').send_keys(self.Name)
+        self.driver.find_element_by_id('Name').send_keys(self.Name)
         time.sleep(0.4)
-        self.driver.find_element_by_name('StuCard').send_keys(self.StuCard)
+        self.driver.find_element_by_id('IdCard').send_keys(self.StuCard)
         time.sleep(0.4)
         code = self.driver.find_element_by_id('code-box').text
         time.sleep(0.4)
-        self.driver.find_element_by_name('codeInput').send_keys(code)
+        self.driver.find_element_by_id('codeInput').send_keys(code)
         time.sleep(0.4)
-        self.driver.find_element_by_id('Button4').click()
+        self.driver.find_element_by_id('Submit').click()
         self.driver.implicitly_wait(5)
+
+        # logging double layui
+        # flag1 = self.is_Element('layui-layer-btn0')
+        # flag2 = self.is_Element('layui-layer-btn1')
+        #
+        # if flag1:
+        #     if flag2:
+        #         if self.default:
+        #             self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
+        #             self.driver.find_element_by_class_name('layui-layer-btn0').click()
+        #             self.driver.implicitly_wait(5)
+        #             return 'un_uid_and_continue'  # 测试用
+        #         else:
+        #             self.driver.close()
+        #             return 'un_uid_and_exit'
+        #     else:
+        #         self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
+        #         self.driver.find_element_by_class_name('layui-layer-btn0').click()
+        #         self.driver.close()
+        #         return 'is_writted'
+
+        # no-id return layui, have done return
+        # print(self.driver.current_window_handle)
+        # self.driver.switch_to.window(self.driver.current_window_handle)
 
         flag1 = self.is_Element('layui-layer-btn0')
         flag2 = self.is_Element('layui-layer-btn1')
 
-        if flag1:
-            if flag2:
-                if self.default:
-                    self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
-                    self.driver.find_element_by_class_name('layui-layer-btn0').click()
-                    self.driver.implicitly_wait(5)
-                    return 'un_uid_and_continue'  # 测试用
-                else:
-                    self.driver.close()
-                    return 'un_uid_and_exit'
-            else:
-                self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
-                self.driver.find_element_by_class_name('layui-layer-btn0').click()
-                self.driver.close()
-                return 'is_writted'
+        if flag1 and flag2:
+            self.driver.close()
+            return 'un_uid_and_exit'
+
+        self.driver.find_element_by_id("platfrom2").click()
+        if self.is_Element('layui-m-layerchild.layui-m-anim-scale'):  # 空格需置换成.
+            self.driver.close()
+            return "is_writted"
 
         return
 
     # 极端情况测试
-    def for_iter(self):
-        time.sleep(3)
-        test_flag = self.is_Element('layui-layer-btn0')
-        if test_flag:
-            self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
-            self.driver.find_element_by_class_name('layui-layer-btn0').click()
-            self.driver.close()
-            return 'is_writted'
+    # def for_iter(self):
+    #     time.sleep(3)
+    #     test_flag = self.is_Element('layui-layer-btn0')
+    #     if test_flag:
+    #         self.driver.find_element_by_id('layui-layer1').click()  # 先找到父节点，防止失焦
+    #         self.driver.find_element_by_class_name('layui-layer-btn0').click()
+    #         self.driver.close()
+    #         return 'is_writted'
 
-    def select_one(self, id, text):
-        s = Select(self.driver.find_element_by_id(id))
+    def select_one(self, name, text):
+        s = Select(self.driver.find_element_by_name(name))
         s.select_by_visible_text(text)
+
+    def is_selected(self, name):
+        element_ls = self.driver.find_elements_by_name(name)
+        for ele in element_ls:
+            if ele.is_selected():
+                return True
+        return False
 
     def fillin(self):
 
-        if self.driver.find_element_by_name("radioSEX").is_enabled():
-            if not self.driver.find_element_by_name("radioSEX").is_selected():
-                self.driver.find_element_by_id("NSex" if self.Sex == "男" else "RSex").click()
-            time.sleep(0.4)
+        # if self.driver.find_element_by_name("radioSEX").is_enabled():
+        #     if not self.driver.find_element_by_name("radioSEX").is_selected():
+        #         self.driver.find_element_by_id("NSex" if self.Sex == "男" else "RSex").click()
+        #     time.sleep(0.4)
 
-        if self.driver.find_element_by_id('SpeType').is_enabled():
-            if not self.driver.find_element_by_id('SpeType').is_selected():
-                self.select_one('SpeType', self.SpeType)
-            time.sleep(0.4)
-        if self.driver.find_element_by_id('CollegeNo').is_enabled():
-            if not self.driver.find_element_by_id('CollegeNo').is_selected():
-                self.select_one('CollegeNo', self.CollegeNo)
-            time.sleep(0.4)
-        if self.driver.find_element_by_id('SpeGrade').is_enabled():
-            if not self.driver.find_element_by_id('SpeGrade').is_selected():
-                self.select_one('SpeGrade', self.SpeGrade)
-            time.sleep(0.4)
-        if self.driver.find_element_by_id('SpecialtyName').is_enabled():
-            if len(self.driver.find_element_by_id('SpecialtyName').get_attribute('value')) == 0:
-                self.driver.find_element_by_id('SpecialtyName').clear()
-                self.driver.find_element_by_id('SpecialtyName').send_keys(self.SpecialtyName)
-            time.sleep(0.4)
-
-        if self.driver.find_element_by_id('ClassName').is_enabled():
-            if len(self.driver.find_element_by_id('ClassName').get_attribute('value')) == 0:
-                self.driver.find_element_by_id('ClassName').clear()
-                self.driver.find_element_by_id('ClassName').send_keys(self.ClassName)
-            time.sleep(0.4)
+        # if self.driver.find_element_by_id('SpeType').is_enabled():
+        #     if not self.driver.find_element_by_id('SpeType').is_selected():
+        #         self.select_one('SpeType', self.SpeType)
+        #     time.sleep(0.4)
+        # if self.driver.find_element_by_id('CollegeNo').is_enabled():
+        #     if not self.driver.find_element_by_id('CollegeNo').is_selected():
+        #         self.select_one('CollegeNo', self.CollegeNo)
+        #     time.sleep(0.4)
+        # if self.driver.find_element_by_id('SpeGrade').is_enabled():
+        #     if not self.driver.find_element_by_id('SpeGrade').is_selected():
+        #         self.select_one('SpeGrade', self.SpeGrade)
+        #     time.sleep(0.4)
+        # if self.driver.find_element_by_id('SpecialtyName').is_enabled():
+        #     if len(self.driver.find_element_by_id('SpecialtyName').get_attribute('value')) == 0:
+        #         self.driver.find_element_by_id('SpecialtyName').clear()
+        #         self.driver.find_element_by_id('SpecialtyName').send_keys(self.SpecialtyName)
+        #     time.sleep(0.4)
+        #
+        # if self.driver.find_element_by_id('ClassName').is_enabled():
+        #     if len(self.driver.find_element_by_id('ClassName').get_attribute('value')) == 0:
+        #         self.driver.find_element_by_id('ClassName').clear()
+        #         self.driver.find_element_by_id('ClassName').send_keys(self.ClassName)
+        #     time.sleep(0.4)
 
         if len(self.driver.find_element_by_id('MoveTel').get_attribute('value')) == 0:
             self.driver.find_element_by_id('MoveTel').clear()
             self.driver.find_element_by_id('MoveTel').send_keys(self.MoveTel)
         time.sleep(0.4)
 
-        if not self.driver.find_element_by_id('FaProvince').is_selected():
+        if not self.driver.find_element_by_name('Province').is_selected():
+            self.select_one('Province', self.ProvinceName)
+            time.sleep(0.4)
+            if not self.driver.find_element_by_name('City').is_selected():
+                self.select_one('City', self.CityName)
+                time.sleep(0.4)
+                if not self.driver.find_element_by_name('County').is_selected():
+                    self.select_one('County', self.CountyName)
+                    time.sleep(0.4)
+
+        if len(self.driver.find_element_by_name('ComeWhere').get_attribute('value')) == 0:
+            self.driver.find_element_by_name('ComeWhere').clear()
+            self.driver.find_element_by_name('ComeWhere').send_keys(self.ComeWhere)
+        time.sleep(0.4)
+
+        if not self.driver.find_element_by_name('FaProvince').is_selected():
             self.select_one('FaProvince', self.FaProvince)
             time.sleep(0.4)
-            if not self.driver.find_element_by_id('FaCity').is_selected():
+            if not self.driver.find_element_by_name('FaCity').is_selected():
                 self.select_one('FaCity', self.FaCity)
                 time.sleep(0.4)
-                if not self.driver.find_element_by_id('FaCounty').is_selected():
+                if not self.driver.find_element_by_name('FaCounty').is_selected():
                     self.select_one('FaCounty', self.FaCounty)
                     time.sleep(0.4)
 
-        if len(self.driver.find_element_by_id('FaComeWhere').get_attribute('value')) == 0:
-            self.driver.find_element_by_id('FaComeWhere').clear()
-            self.driver.find_element_by_id('FaComeWhere').send_keys(self.FaComeWhere)
+        if len(self.driver.find_element_by_name('FaComeWhere').get_attribute('value')) == 0:
+            self.driver.find_element_by_name('FaComeWhere').clear()
+            self.driver.find_element_by_name('FaComeWhere').send_keys(self.FaComeWhere)
         time.sleep(0.4)
 
-        if not self.driver.find_element_by_id('ProvinceName').is_selected():
-            self.select_one('ProvinceName', self.ProvinceName)
-            time.sleep(0.4)
-            if not self.driver.find_element_by_id('CityName').is_selected():
-                self.select_one('CityName', self.CityName)
-                time.sleep(0.4)
-                if not self.driver.find_element_by_id('CountyName').is_selected():
-                    self.select_one('CountyName', self.CountyName)
-                    time.sleep(0.4)
-
-        if len(self.driver.find_element_by_id('ComeWhere').get_attribute('value')) == 0:
-            self.driver.find_element_by_id('ComeWhere').clear()
-            self.driver.find_element_by_id('ComeWhere').send_keys(self.ComeWhere)
-        time.sleep(0.4)
-
-        if not self.driver.find_element_by_name("radio1").is_selected():
+        if not self.is_selected("radio_1"):
             self.driver.find_element_by_id(Q1_table[self.Q1]).click()
         time.sleep(0.4)
-        if not self.driver.find_element_by_name("radio2").is_selected():
+        if not self.is_selected("radio_2"):
             self.driver.find_element_by_id(Q2_table[self.Q2]).click()
         time.sleep(0.4)
-        if not self.driver.find_element_by_name("radio3").is_selected():
+        if not self.is_selected("radio_3"):
             self.driver.find_element_by_id(Q3_table[self.Q3]).click()
         time.sleep(0.4)
-        if not self.driver.find_element_by_name("radio4").is_selected():
+        if not self.is_selected("radio_4"):
             self.driver.find_element_by_id(Q4_table[self.Q4]).click()
         time.sleep(0.4)
         if len(self.driver.find_element_by_name("Other").get_attribute('value')) == 0:
@@ -210,10 +233,10 @@ class clockin(object):
             self.driver.find_element_by_id('Other').send_keys(self.other)
         time.sleep(0.4)
 
-        self.driver.find_element_by_id('Checkbox1').click()
+        self.driver.find_element_by_id('ckCLS').click()
 
         self.driver.implicitly_wait(5)
-        self.driver.find_element_by_id('Save_Btn').click()
+        self.driver.find_element_by_id('SaveBtnDiv').click()
 
 
 def main(config):

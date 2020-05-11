@@ -117,7 +117,7 @@ class clockin(object):
             return 'un_uid_and_exit'
 
         self.driver.find_element_by_id("platfrom2").click()
-        if self.driver.find_element_by_class_name('layui-m-layerchild.layui-m-anim-scale'):  # 空格需置换成.
+        if self.is_Element('layui-m-layerchild.layui-m-anim-scale'):  # 空格需置换成.
             self.driver.close()
             return "is_writted"
 
