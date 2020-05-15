@@ -66,3 +66,4 @@
     - win 关闭 Ctrl + Break 或者（虚拟键盘） Ctrl + Fn + Pause
     
     - linux 关闭 Ctrl + C
+ - ![log](https://github.com/swjtuer0/Clockin/blob/master/log.png)
