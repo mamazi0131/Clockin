@@ -68,15 +68,18 @@
     - linux 关闭 Ctrl + C
 
     - VPS长时间运行后可能出现如下错误解决防范
-        报错：
+    
+        - 报错：
         ```
         Message: unknown error: session deleted because of page crash
         from unknown error: cannot determine loading status
         from tab crashed
         (Session info: headless chrome=81.0.4044.138)
         ```
-        原因：内存泄漏造成的程序崩溃
-        解决方案：
+        
+        - 原因：内存泄漏造成的程序崩溃
+        
+        - 解决方案：
         ```
         1.更改配置，放弃使用内存，转而使用硬盘，执行速度略微下降
         options.add_argument('--disable-dev-shm-usage')
