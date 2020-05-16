@@ -81,12 +81,16 @@
         
         - 解决方案：
         ```
-        1.更改配置，放弃使用内存，转而使用硬盘，执行速度略微下降
+        1.在clockin.py中更改webdriver配置，放弃使用内存，转而使用硬盘，执行速度略微下降
         options.add_argument('--disable-dev-shm-usage')
         ```
         ```
         2.更改VPS系统配置，加大内容容量
+        df -h /dev/shm
         sudo mount -t tmpfs -o rw,nosuid,nodev,noexec,relatime,size=512M tmpfs /dev/shm
+        mount -o remount /dev/shm
+        df -h /dev/shm
         ```
     
- - ![log](https://github.com/swjtuer0/Clockin/blob/master/log.png)
+ - 运行记录 
+ ![log](https://github.com/swjtuer0/Clockin/blob/master/log.png)
